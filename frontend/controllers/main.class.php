@@ -35,18 +35,18 @@ class AT_GDPR_Main {
 
         wp_enqueue_style( 'at-gdpr', ATGDPRURL . 'frontend/assets/css/at-gdpr.css' );
         $style = '.at-cookie-bar button {';
-        if( $this->settings['at_gdpr_button_color'] ) {
+        if( isset( $this->settings['at_gdpr_button_color'] ) && $this->settings['at_gdpr_button_color'] ) {
             $style .= 'background:' . $this->settings['at_gdpr_button_color'] . ';';
         }
-        if( $this->settings['at_gdpr_button_text_color'] ) {
+        if( isset( $this->settings['at_gdpr_button_text_color'] ) && $this->settings['at_gdpr_button_text_color'] ) {
             $style .= 'color:' . $this->settings['at_gdpr_button_text_color'] . ';';
         }
         $style .= '}';
         $style .= '.at-cookie-bar button:hover {';
-        if( $this->settings['at_gdpr_button_hover_color'] ) {
-            $style .= 'background:' . $this->settings['ap_gdpr_button_hover_color'] . ';';
+        if( isset( $this->settings['at_gdpr_button_hover_color'] ) && $this->settings['at_gdpr_button_hover_color'] ) {
+            $style .= 'background:' . $this->settings['at_gdpr_button_hover_color'] . ';';
         }
-        if( $this->settings['at_gdpr_button_hover_text_color'] ) {
+        if( isset( $this->settings['at_gdpr_button_hover_text_color'] ) && $this->settings['at_gdpr_button_hover_text_color'] ) {
             $style .= 'color:' . $this->settings['at_gdpr_button_hover_text_color'] . ';';
         }
         $style .= '}';

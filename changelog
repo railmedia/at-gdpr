@@ -1,3 +1,8 @@
+<h4>1.0.1 - 23.08.2023</h4>
+<ul>
+    <li>Added options existance validation</li>
+    <li>Cursor pointer set to buttons in front end</li>
+</ul>
 <h4>1.0.0 - 16.11.2021</h4>
 <ul>
     <li>Initial release</li>

@@ -23,6 +23,7 @@
     padding:5px 0;
     color:#fff;
     border:1px solid transparent;
+    cursor: pointer;
 }
 .at-cookie-bar button:hover {
     background:#ff6600;

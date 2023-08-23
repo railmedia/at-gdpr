@@ -3,7 +3,7 @@
 Plugin Name: AT GDPR
 Plugin URI: https://www.tudorache.me
 Description: Adds cookies bar where the visitor can accept or reject cookies.
-Version: 1.0.0
+Version: 1.0.1
 Author: Adrian Emil Tudorache
 Author URI: https://www.tudorache.me
 License: GPL

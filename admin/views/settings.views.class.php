@@ -29,7 +29,7 @@ class AT_GDPR_Admin_Settings_Views {
             break;
             case 'select':
 
-            if( $args['multiple'] ) {
+            if( isset( $args['multiple'] ) ) {
                 $fieldname = $args['id'] . '[]';
                 $multiple = 'multiple="multiple"';
                 $size = '20';
@@ -42,7 +42,6 @@ class AT_GDPR_Admin_Settings_Views {
         <select id="<?php echo $args['id']; ?>" name="<?php echo $fieldname; ?>" size="<?php echo $size; ?>" <?php echo $multiple; ?>>
         <?php
             foreach( $args['options'] as $value => $label ) {
-                //var_dump($args['value']);
                 if( is_array( $args['value'] ) ) {
                     $selected = in_array( $value, $args['value'] ) ? 'selected="selected"' : '';
                 } else {
