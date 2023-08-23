@@ -1,13 +1,40 @@
 <?php
+/**
+* @package AT GDPR
+* @author  Adrian Emil Tudorache
+* @license GPL-2.0+
+* @link    https://www.tudorache.me/
+**/
+
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'Status: 403 Forbidden' );
+	header( 'HTTP/1.1 403 Forbidden' );
+	exit;
+}
+
+/**
+ * Main class
+ */
 class AT_GDPR_Main {
 
+    /**
+     * @var $settings - Holds settings saved in the DB
+     */
     private $settings;
 
+    /**
+     * Constructor
+     * @return void
+     */
     function __construct() {
         $this->settings = $this->get_settings();
         add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
     }
 
+    /**
+     * @method get_settings() - Fetches all existing settings from DB
+     * @return array
+     */
     function get_settings() {
 
         $settings_fields = array(
@@ -31,6 +58,10 @@ class AT_GDPR_Main {
 
     }
 
+    /**
+     * @method scripts() - Adds all required scripts and stylesheets as well as Google Analytics if applicable
+     * @return void
+     */
     function scripts() {
 
         wp_enqueue_style( 'at-gdpr', ATGDPRURL . 'frontend/assets/css/at-gdpr.css' );

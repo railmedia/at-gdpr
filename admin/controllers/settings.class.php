@@ -1,15 +1,50 @@
 <?php
+/**
+* @package AT GDPR
+* @author  Adrian Emil Tudorache
+* @license GPL-2.0+
+* @link    https://www.tudorache.me/
+**/
+
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'Status: 403 Forbidden' );
+	header( 'HTTP/1.1 403 Forbidden' );
+	exit;
+}
+
+/**
+ * @class AT_GDPR_Admin_Settings - Main admin settings
+ */
 class AT_GDPR_Admin_Settings {
 
-    private $views, $settings;
+    /**
+     * @var $views - Holds views for the admin settings page
+     */
+    private $views;
 
+    /**
+     * @var $settings - Holds settings saved in the DB
+     */
+    private $settings;
+
+    /**
+     * Constructor
+     * @return void
+     */
     function __construct() {
+
         $this->settings = $this->get_settings();
         $this->views = new AT_GDPR_Admin_Settings_Views;
+
         add_action( 'admin_menu', array( $this, 'menu' ) );
         add_action( 'admin_init', array( $this, 'display' ) );
+
     }
 
+    /**
+     * @method get_settings() - Fetches all existing settings from DB
+     * @return array
+     */
     function get_settings() {
 
         $settings_fields = array(
@@ -33,6 +68,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method menu() - Adds AT GDPR admin menu item user the main Settings menu item
+     * @return void
+     */
     function menu() {
 
         add_submenu_page(
@@ -46,14 +85,25 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method settings() - Callback for the add_submenu_page() function declared in the menu() method
+     * @return void
+     */
     function settings() {
         echo $this->views->settings();
     }
 
+    /**
+     * @method display_settings() - Callback for the add_settings_section() function declared in the display() method
+     * @return void
+     */
     function display_settings() {
-        //echo 'Settings';
     }
 
+    /**
+     * @method display() - Registers all available settings
+     * @return void
+     */
     function display() {
 
         add_settings_section('at_gdpr_settings', __('General Settings', 'at-gdpr'), array( $this, 'display_settings' ), 'at_gdpr');
@@ -170,6 +220,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_active_select() - Select box markup for at_gdpr_active settings
+     * @return void
+     */
     function at_gdpr_active_select() {
 
         $value = $this->settings['at_gdpr_active'];
@@ -185,6 +239,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_text_editor() - Editor markup for at_gdpr_active settings
+     * @return void
+     */
     function at_gdpr_text_editor() {
 
         $value = $this->settings['at_gdpr_text'];
@@ -199,6 +257,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_accept_button_label_text() - Select box markup for at_gdpr_accept_button_label setting
+     * @return void
+     */
     function at_gdpr_accept_button_label_text() {
 
         $value = $this->settings['at_gdpr_accept_button_label'];
@@ -213,6 +275,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_reject_button_label_text() - Select box markup for at_gdpr_reject_button_label setting
+     * @return void
+     */
     function at_gdpr_reject_button_label_text() {
 
         $value = $this->settings['at_gdpr_reject_button_label'];
@@ -227,6 +293,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_button_color_text() - Select box markup for at_gdpr_button_color setting
+     * @return void
+     */
     function at_gdpr_button_color_text() {
 
         $value = $this->settings['at_gdpr_button_color'];
@@ -241,6 +311,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_button_hover_color_text() - Select box markup for at_gdpr_button_hover_color setting
+     * @return void
+     */
     function at_gdpr_button_hover_color_text() {
 
         $value = $this->settings['at_gdpr_button_hover_color'];
@@ -255,6 +329,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_button_text_color_text() - Select box markup for at_gdpr_button_text_color setting
+     * @return void
+     */
     function at_gdpr_button_text_color_text() {
 
         $value = $this->settings['at_gdpr_button_text_color'];
@@ -269,6 +347,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_button_hover_text_color_text() - Select box markup for at_gdpr_button_hover_text_color setting
+     * @return void
+     */
     function at_gdpr_button_hover_text_color_text() {
 
         $value = $this->settings['at_gdpr_button_hover_text_color'];
@@ -283,6 +365,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_domain_text() - Select box markup for at_gdpr_domain setting
+     * @return void
+     */
     function at_gdpr_domain_text() {
 
         $value = $this->settings['at_gdpr_domain'];
@@ -299,6 +385,10 @@ class AT_GDPR_Admin_Settings {
 
     }
 
+    /**
+     * @method at_gdpr_ga_account_text() - Select box markup for at_gdpr_ga_account setting
+     * @return void
+     */
     function at_gdpr_ga_account_text() {
 
         $value = $this->settings['at_gdpr_ga_account'];
@@ -312,7 +402,6 @@ class AT_GDPR_Admin_Settings {
         );
 
     }
-
 
 }
 ?>
