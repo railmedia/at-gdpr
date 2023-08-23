@@ -1,0 +1,54 @@
+.at-cookie-bar {
+	position: fixed;
+    background:#fff;
+	bottom: 0;
+	box-shadow: 0 7px 15px 4px #333;
+	-webkit-box-shadow: 0 7px 15px 4px #333;
+	-moz-box-shadow: 0 7px 15px 4px #333;
+	left: 0;
+	right: 0;
+	width: 100%;
+	min-height: 40px;
+	z-index: 10000;
+    font-size:16px;
+    font-family:'Calibri', Arial, sans-serif;
+	/* opacity: 0.8; */
+}
+.at-cookie-bar button {
+    font-size:16px;
+    width:100%;
+    margin-bottom: 10px;
+    font-family:'Calibri', Arial, sans-serif;
+    background:#006;
+    padding:5px 0;
+    color:#fff;
+    border:1px solid transparent;
+}
+.at-cookie-bar button:hover {
+    background:#ff6600;
+    /* background: #0088cc; */
+}
+.at-cookie-bar button:last-child {
+    margin-bottom:0;
+}
+.at-cookie-bar.bottom {
+    /* position:relative; */
+}
+.at-cookie-bar .wrapper {
+    display:flex;
+    padding: 15px;
+    width:90%;
+    margin:0 auto;
+}
+
+.at-cookie-bar .wrapper > div {
+    flex-grow:1;
+}
+.at-cookie-bar .wrapper .cookie-bar-left {
+    padding-right:10px;
+    width:70%;
+}
+.at-cookie-bar .wrapper .cookie-bar-right {
+    text-align:right;
+    width:30%;
+}
